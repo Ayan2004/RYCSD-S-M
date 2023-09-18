@@ -1,0 +1,54 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+<div class="container shadow-lg p-3 mb-5 bg-white rounded">
+
+    <!-- Breadcrumb -->
+    <nav aria-label="breadcrumb" class="main-breadcrumb">
+      <ol class="breadcrumb">
+          <li class="breadcrumb-item"><a href="{% url 'home' %}#COURSES">Home</a></li>
+          <li class="breadcrumb-item"><a href="{% url 'courses' %}">Courses</a></li>
+          <li class="breadcrumb-item active" aria-current="page">Courses_View</li>
+      </ol>
+  </nav>
+  <!-- /Breadcrumb -->
+
+
+  <center>
+    <h2 class="text-danger" >{{course.Name}}</h2>
+    <hr>
+  </center>
+    <table class="table table-bordered">
+        <thead>
+          <tr class="table-success">
+            <th colspan="2" class="text-center h2">Course Details</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th scope="row">Eligibility</th>
+            <td>{{course.Eligibility}}</td>
+          </tr>
+          <tr>
+            <th scope="row">Duration</th>
+            <td>{{course.Duration}}</td>
+          </tr>
+          <tr>
+            <th scope="row">Course Fees</th>
+            <td>{{course.Course_Fees}}</td>
+          </tr>
+          <tr>
+            <th scope="row">Emi Structure</th>
+            <td>{{course.Fees_Structure}}</td>
+          </tr>
+          <tr>
+            <th scope="row">Description</th>
+            <td>{{course.Description|safe}}</td>
+          </tr>
+        </tbody>
+    </table>
+</div>
+
+{% endblock content %}

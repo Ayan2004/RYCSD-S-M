@@ -1,0 +1,64 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+
+    {% include 'student/css component.html' %}
+    
+</head>
+<body>
+    <b><a href="{% url 'add_student' %}"> Add </a> </b><br>
+    
+    <table border="0" cellspacing="5" cellpadding="5">
+        <tbody><tr>
+            <td>Minimum date:</td>
+            <td><input type="text" id="min" name="min"></td>
+        </tr>
+        <tr>
+            <td>Maximum date:</td>
+            <td><input type="text" id="max" name="max"></td>
+        </tr>
+    </tbody></table>
+
+
+    <table id="myTable" class="display table table-primary table-striped table-hover" style="width:100%">
+        <thead>
+            <tr>
+                <th>Enrollment_No</th>
+                <th>Name</th>
+                <th>Father Name</th>
+                <th>Course</th>
+                <th>Date Of Admission</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for student in students %}
+            <tr>
+                <td><a href="{% url 'student_view' student.id %}">{{student.Enrollment_No}}</a></td>
+                <td><a href="{% url 'student_view' student.id %}">{{student.Name}}</a></td>
+                <td>{{student.Father_Name}}</td>
+                <td>{{student.Course}}</td>
+                <td>{{student.Date_Of_Admission}}</td>
+                <td><a href="{% url 'update_student' student.id %}">Edit</a> | <a href="{% url 'delete_student' student.id %}">Delete</a></td>
+            </tr>
+            {% endfor %}
+           
+        </tbody>
+    </table>
+
+
+
+
+
+</body>
+
+{% comment %} <script src="{% static 'js/table.js' %}"></script> {% endcomment %}
+{% include 'student/js component.html' %}
+
+</html>

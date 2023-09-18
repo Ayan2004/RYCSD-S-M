@@ -1,0 +1,17 @@
+/* .card{
+    height: 13rem;
+    width: 13rem;
+} */
+
+.courses{
+    /* background:rgb(194, 194, 194); */
+    padding-bottom: 3rem;
+}
+
+.list-group-item{
+    background:transparent;
+}
+
+a{
+    text-decoration: none;
+}

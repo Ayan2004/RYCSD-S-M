@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+<div class="container shadow-lg p-3 mb-5 bg-white rounded">
+    <center>
+        <h2>{{heading}}</h2>
+    </center>
+        
+    <hr>
+
+    <form action="" method="POST" enctype="multipart/form-data">
+        <div class="form-group">
+            {% csrf_token %}
+            {{ form.media }}
+            {{form.as_p}}
+            <button class="form-control btn btn-danger mb-2">Submit</button>
+        </div>
+    </form>
+</div>
+
+<script>
+    CKEDITOR.replace('id_content');  // Replace 'id_content' with the actual field ID
+</script> 
+{% endblock content %}

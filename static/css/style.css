@@ -1,0 +1,28 @@
+#header{
+    border-top: 12px groove orange;
+    border-bottom: 5px groove #d8d8d8;
+}
+
+#header img{
+    content:url(../header/new_heading.jpg);
+    height: 10rem;
+    width: 96vw;
+    margin-top: 10px;
+}
+
+@media screen and (max-width: 750px) {
+    #header img{
+        content:url(../header/ycsd2.png);
+        height: 9rem;
+        width: 96vw;
+        margin-top: 10px;
+    }
+ }
+
+.new-marquee {
+    font-size: 10pt;
+    font-family: 'Nova Square', cursive;
+    padding: 0px;
+    border-bottom: 6px solid #e9971c;
+    border-top: 6px solid #e9971c;
+}

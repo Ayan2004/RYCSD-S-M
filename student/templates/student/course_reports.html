@@ -1,0 +1,99 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+<script>
+    $(document).ready( function () {
+        $('#myTable').DataTable({
+            responsive: true,
+            retrieve: true,
+            dom: 'lBfrtip', 
+            buttons: true,
+            buttons: [
+                {
+                extend:    'csv',
+                text:      '<i class="fa fa-files-o"></i> CSV',
+                titleAttr: 'CSV',
+                className: 'btn btn-default btn-sm',
+                exportOptions: {
+                    columns: ':visible'
+                }
+                },
+                {
+                extend:    'excel',
+                text:      '<i class="fa fa-files-o"></i> Excel',
+                titleAttr: 'Excel',
+                className: 'btn btn-default btn-sm',
+                exportOptions: {
+                    columns: ':visible'
+                }
+                },
+                {
+                extend:    'pdf',
+                text:      '<i class="fa fa-file-pdf-o"></i> PDF',
+                titleAttr: 'PDF',
+                className: 'btn btn-default btn-sm',
+                exportOptions: {
+                    columns: ':visible'
+                }
+                },               
+                {
+                extend:    'print',
+                text:      '<i class="fa fa-print"></i> Print',
+                titleAttr: 'Print',
+                className: 'btn btn-default btn-sm',
+                exportOptions: {
+                    columns: ':visible'
+                }
+                },  
+            ]
+            });
+    } );
+</script>
+
+<div class="container shadow-lg p-3 mb-5 bg-white rounded">
+
+    <!-- Breadcrumb -->
+    <nav aria-label="breadcrumb" class="main-breadcrumb">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="{% url 'home' %}#COURSES">Home</a></li>
+            <li class="breadcrumb-item active" aria-current="page">Course_Reports</li>
+        </ol>
+    </nav>
+    <!-- /Breadcrumb -->
+
+    {% if mode == 'alter' %}
+        <a href="{% url 'add_courses' %}"><button class="btn btn-primary b">Add Course</button></a>
+    {% endif %}
+
+    <table id="myTable" class="display table table-hover" style="width:100%">
+        <thead class="py-lg-5">
+            <tr class="py-lg-5 table-light">
+                <th>Course Name</th>
+                <th>Course Fees</th>
+                <th>Admission Fees</th>
+                <th>Monthly Fees</th>
+                <th>Duration</th>
+                <th>Eligibility</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for course in courses %}
+            <tr>
+                <td>{{course.Name}}</td>
+                <td>{{course.Course_Fees}}</td>
+                <td>{{course.Admission_Fee}}</td>
+                <td>{{course.Fees_Structure}}</td>
+                <td>{{course.Duration}}</td>
+                <td>{{course.Eligibility}}</td>
+
+            </tr>
+            {% endfor %}
+            
+        </tbody>
+    </table>
+
+</div>
+
+{% endblock content %}

@@ -1,0 +1,48 @@
+{% extends "base.html" %}
+
+{% load static %}
+
+{% block content %}
+
+    <table border="0" cellspacing="5" cellpadding="5">
+            <tbody><tr>
+                <td>Minimum date:</td>
+                <td><input type="text" id="min" name="min"></td>
+            </tr>
+            <tr>
+                <td>Maximum date:</td>
+                <td><input type="text" id="max" name="max"></td>
+            </tr>
+        </tbody>
+    </table>
+    
+    
+    <table id="myTable" class="display table table-hover" style="width:100%">
+        <thead>
+            <tr class="table-success">
+                <th>Enrollment_No</th>
+                <th>Name</th>
+                <th>Father Name</th>
+                <th>Course</th>
+                <th>Date Of Admission</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for student in students %}
+            <tr>
+                <td>{{student.Enrollment_No}}</td>
+                <td>{{student.Name}}</td>
+                <td>{{student.Father_Name}}</td>
+                <td>{{student.Course}}</td>
+                <td>{{student.Date_Of_Admission}}</td>
+                <td><a href="{% url 'pay_installment' student.id %}"> <button class="btn btn-primary">Pay Installment</button> </a> | <a href="{% url 'student_view_with_installment' student.id %}"><button class="btn btn-success">View</button></a></td>
+            </tr>
+            {% endfor %}
+            
+        </tbody>
+    </table>
+    
+{% endblock content %}
+    
+    

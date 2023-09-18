@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    {% comment %} Bootstrap {% endcomment %}
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+    {% comment %} Bootstrap {% endcomment %}
+
+    <title>Student View</title>
+</head>
+<body>
+    <div class="container">
+
+        <div class="row">
+          <div class="col-4">
+            <img src="{{student.Photo.url}}" alt="no photo" style = "width: 170px; height: 200px;"/> 
+            <br>
+            <div><a href="{% url 'student_list'%}">Go Back</a></div>
+          </div>
+
+
+          <div class="col-8 text-center">
+            <div> Name  :  {{student.Name}} </div>
+            <div> Course Category  :  {{student.Course_Category}} </div>
+            <div> D-O-B  :  {{student.DOB}} </div>
+            <div> Gender  :  {{student.Gender}} </div>
+            <div> Caste  :  {{student.Caste}} </div>
+            <div> Father Name  :  {{student.Father_Name}} </div>
+            <div> Mother Name  :  {{student.Mother_Name}} </div>
+            <div> Phone No :  {{student.Contact_No}} </div>
+            <div> Email  :  {{student.Email}} </div>
+            <div> District  :  {{student.District}} </div>
+            <div> Address  :  {{student.Address}} </div>
+            <div> Highest Qualification  :  {{student.Highest_Qualification}} </div>
+            <div> Name Of School  :  {{student.Name_Of_School}} </div>
+            <div> Name Of Board  :  {{student.Name_Of_Board}} </div>
+            <div> Year Of Pass  :  {{student.Year_Of_Pass}} </div>
+            <div> Marks Obtained  :  {{student.Marks_Obtained}} </div>
+          </div>           
+
+            
+          </div>
+
+        </div>
+
+      </div>
+</body>
+
+{% comment %} bootstrap {% endcomment %}
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
+{% comment %} bootstrap {% endcomment %}
+
+</html>

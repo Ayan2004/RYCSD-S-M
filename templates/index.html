@@ -1,0 +1,207 @@
+{% extends 'base.html' %} 
+{% load static %}
+
+
+{% block content %}
+<link rel="stylesheet" href="{% static 'CSS/index.css' %}">
+
+
+<div class="container">
+
+    <div class="row justify-content-around">
+
+        <div class="courses row justify-content-around shadow-lg p-3 mb-5 bg-white rounded">
+            <center> <h1 id="COURSES">COURSES</h1></center>
+            <hr>
+
+            <div class="card m-2" style="width: 13rem; height: 13rem;">
+                <a href="{% url 'courses' %}">
+                    <img src="{% static "images/default.png" %}" class="card-img-top" alt="...">
+                    
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item text-center">View Courses</li>
+                    </ul>
+                </a>
+            </div>
+
+            <div class="card m-2" style="width: 13rem; height: 13rem;">
+                <a href="{% url 'courses_alter_view' %}">
+                    <img src="{% static "images/default.png" %}" class="card-img-top" alt="...">
+                    
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item text-center">Add Courses</li>
+                    </ul>
+                </a>
+            </div>
+
+            <div class="card m-2" style="width: 13rem; height: 13rem;">
+                <a href="{% url 'course_reports' %}">
+                    <img src="{% static "images/default.png" %}" class="card-img-top" alt="...">
+                    
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item text-center">Course Reports</li>
+                    </ul>
+                </a>
+            </div>
+
+        </div>
+
+
+
+        <div class="courses row justify-content-around shadow-lg p-3 mb-5 bg-white rounded">
+            <center> <h1 id="ENQURIES" >ENQURIES</h1></center>
+            <hr>
+
+            <div class="card m-2" style="width: 13rem; height: 13rem;">
+                <a href="{% url 'enquries_alter_view' %}">
+                    <img src="{% static "images/default.png" %}" class="card-img-top" alt="...">
+                    
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item text-center">Add Enquries</li>
+                    </ul>
+                </a>
+            </div>
+
+            
+            <div class="card m-2" style="width: 13rem; height: 13rem;">
+                <a href="{% url 'enquries' %}">
+                    <img src="{% static "images/default.png" %}" class="card-img-top" alt="...">
+                    
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item text-center">View Enquries</li>
+                    </ul>
+                </a>
+            </div>
+
+
+            <div class="card m-2" style="width: 13rem; height: 13rem;">
+                <a href="{% url 'enquries_reports' %}">
+                    <img src="{% static "images/default.png" %}" class="card-img-top" alt="...">
+                    
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item text-center">Enquries Reports</li>
+                    </ul>
+                </a>
+            </div>
+
+        </div>
+
+
+
+        <div class="courses row justify-content-around shadow-lg p-3 mb-5 bg-white rounded">
+            <center> <h1 id="STUDENTS">STUDENTS</h1></center>
+            <hr>
+        
+            <div class="card m-2" style="width: 13rem; height: 13rem;">
+                <a href="{% url 'add_student' %}">
+                    <img src="{% static "images/default.png" %}" class="card-img-top" alt="...">
+
+                    <ul class="list-group list-group-flush ">
+                        <li class="list-group-item text-center">Add Student</li>
+                    </ul>
+                </a>
+            </div>
+            
+            <div class="card m-2" style="width: 13rem; height: 13rem;">
+                <a href="{% url 'student_list' %}">
+                    <img src="{% static "images/default.png" %}" class="card-img-top" alt="...">
+                    
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item text-center">View Student </li>
+                    </ul>
+                </a>
+            </div>
+
+            <div class="card m-2" style="width: 13rem; height: 13rem;">
+                <a href="{% url 'student_reports' %}">
+                    <img src="{% static "images/default.png" %}" class="card-img-top" alt="...">
+                    
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item text-center">Student Reports</li>
+                    </ul>
+                </a>
+            </div>
+
+            <div class="card m-2" style="width: 13rem; height: 13rem;">
+                <a href="{% url 'student_list_with_fees' %}">
+                    <img src="{% static "images/default.png" %}" class="card-img-top" alt="...">
+                    
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item text-center">Student Fees</li>
+                    </ul>
+                </a>
+            </div>
+        
+            <div class="card m-2" style="width: 13rem; height: 13rem;">
+                <a href="{% url 'student_list_with_installment' %}">
+                    <img src="{% static "images/default.png" %}" class="card-img-top" alt="...">
+                    
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item text-center">Fees Payment</li>
+                    </ul>
+                </a>
+            </div>
+
+            <div class="card m-2" style="width: 13rem; height: 13rem;">
+                <a href="{% url 'Fees_Reports' %}">
+                    <img src="{% static "images/default.png" %}" class="card-img-top" alt="...">
+                    
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item text-center">Student Fees Reports</li>
+                    </ul>
+                </a>
+            </div>
+
+            <div class="card m-2" style="width: 13rem; height: 13rem;">
+                <a href="{% url 'Fees_Payment_Reports' %}">
+                    <img src="{% static "images/default.png" %}" class="card-img-top" alt="...">
+                    
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item text-center">Payment Reports</li>
+                    </ul>
+                </a>
+            </div>
+        </div>
+    
+
+
+
+        <div class="courses row justify-content-around shadow-lg p-3 mb-5 bg-white rounded">
+            <center> <h1 id="ACCOUNTS">ACCOUNTS</h1></center>
+            <hr>
+        
+            <div class="card m-2" style="width: 13rem; height: 13rem;">
+                <a href="{% url 'Make_Transaction' %}">
+                    <img src="{% static "images/default.png" %}" class="card-img-top" alt="...">
+
+                    <ul class="list-group list-group-flush ">
+                        <li class="list-group-item text-center">Make Transactions</li>
+                    </ul>
+                </a>
+            </div>
+        
+            <div class="card m-2" style="width: 13rem; height: 13rem;">
+                <a href="{% url 'View_Transaction' %}">
+                    <img src="{% static "images/default.png" %}" class="card-img-top" alt="...">
+
+                    <ul class="list-group list-group-flush ">
+                        <li class="list-group-item text-center">Alter Transactions</li>
+                    </ul>
+                </a>
+            </div>
+        
+            <div class="card m-2" style="width: 13rem; height: 13rem;">
+                <a href="{% url 'Transaction_Reports' %}">
+                    <img src="{% static "images/default.png" %}" class="card-img-top" alt="...">
+
+                    <ul class="list-group list-group-flush ">
+                        <li class="list-group-item text-center">Reports</li>
+                    </ul>
+                </a>
+            </div>
+        </div>    
+                
+    </div>
+</div>
+
+{% endblock content %}

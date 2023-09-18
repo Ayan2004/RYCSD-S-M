@@ -1,0 +1,26 @@
+
+{% if messages %}
+
+<script>
+  $(document).ready(function() {
+ 
+  $("#success-alert").fadeTo(2000, 500).slideUp(500, function() {
+    $("#success-alert").slideUp(500);
+  });
+
+});
+</script>
+
+<div class="container">
+
+
+  {% for message in messages %}
+  <div class="container-fluid p-0 d-flex justify-content-end float-end ">
+    <div class="alert {{ message.tags }} alert-dismissible px-4 py-2" role="alert" id = "success-alert" >
+      {{ message }}
+    </div>
+  </div>
+  {% endfor %}
+
+</div>
+{% endif %}

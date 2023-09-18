@@ -1,0 +1,146 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load mathfilters %}
+
+{% block content %}
+
+<script>
+    $(document).ready( function () {
+        $('#myTable').DataTable({
+            responsive: true,
+            retrieve: true,
+            order: [],
+            dom: 'lBfrtip', 
+            buttons: true,
+
+            buttons: [
+                {
+                extend:    'csv',
+                footer: true,
+                text:      '<i class="fa fa-files-o"></i> CSV',
+                titleAttr: 'CSV',
+                className: 'btn btn-default btn-sm',
+                exportOptions: {
+                    columns: ':visible'
+                }
+                },
+                {
+                extend:    'excel',
+                footer: true,
+                text:      '<i class="fa fa-files-o"></i> Excel',
+                titleAttr: 'Excel',
+                className: 'btn btn-default btn-sm',
+                exportOptions: {
+                    columns: ':visible'
+                }
+                },
+                {
+                extend:    'pdf',
+                footer: true,
+                text:      '<i class="fa fa-file-pdf-o"></i> PDF',
+                titleAttr: 'PDF',
+                className: 'btn btn-default btn-sm',
+                exportOptions: {
+                    columns: ':visible'
+                }
+                },               
+                {
+                extend:    'print',
+                footer: true,
+                text:      '<i class="fa fa-print"></i> Print',
+                titleAttr: 'Print',
+                className: 'btn btn-default btn-sm',
+                exportOptions: {
+                    columns: ':visible'
+                }
+                },  
+            ]
+            });
+            
+    } );
+</script>
+
+<div class="container shadow-lg p-3 mb-5 bg-white rounded">
+
+        <!-- Breadcrumb -->
+        <nav aria-label="breadcrumb" class="main-breadcrumb">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="{% url 'home' %}#ACCOUNTS">Home</a></li>
+            <li class="breadcrumb-item active" aria-current="page">Transactions_Reports</li>
+        </ol>
+    </nav>
+    <!-- /Breadcrumb -->
+
+    <form method="post">
+        {% csrf_token %}
+        <div class="d-flex flex-wrap justify-content-end">
+            <div class="mx-2">
+                <label>Form:</label>
+                <input type="date" id="min" name="min">     
+            </div>
+            <div class="mx-2">
+                <label>To:</label>
+                <input type="date" id="max" name="max">
+            </div>
+            <div class="mx-2">
+                <select name="c/b" id="c/b">
+                    <option value="All">All</option>
+                    <option value="Cash">Cash</option>
+                    <option value="Bank">Bank</option>
+                </select>
+            </div>
+            <div class="mx-2">
+                <input type="submit" value="search">
+            </div>
+        </div>
+    </form>
+
+    <table id="myTable" class="display table table-hover" style="width:100%">
+        <thead class="py-lg-5">
+            <tr class="py-lg-5 table-light">
+                <th>Date</th>
+                <th>Purpose</th>
+                <th>Cr.</th>
+                <th>Dr.</th>
+                <th>Payment Method</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for transaction in transactions %}
+            <tr>
+                <td>{{transaction.Date}}</td>            
+                <td>{{transaction.Purpose}}</td>
+
+                {% if transaction.Amount >= 0 %}
+                    <td>{{transaction.Amount}}</td>
+                {% else %}
+                    <td>{{flag}}</td>
+                {% endif %} 
+
+                {% if transaction.Amount <= 0 %}
+                    <td>{{transaction.Amount}}</td> 
+                {% else %}
+                    <td>{{flag}}</td>          
+                {% endif %}            
+    
+                <td>{{transaction.P_method}}</td>            
+
+            </tr>
+            {% endfor %}
+            
+        </tbody>
+
+        <tfoot>
+            <tr>
+                <th>{{flag}}</th>
+                <th>{{flag}}</th>
+                <th>{{flag}}</th>
+                <th>{{flag}}</th>
+                <th style="text-align:right">Total Balance : {{balance}}</th>
+            </tr>
+        </tfoot>
+    </table>
+
+</div>
+
+{% endblock content %}

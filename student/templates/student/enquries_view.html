@@ -1,0 +1,62 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+<div class="container shadow-lg p-3 mb-5 bg-white rounded">
+
+      <!-- Breadcrumb -->
+      <nav aria-label="breadcrumb" class="main-breadcrumb">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="{% url 'home' %}#ENQURIES">Home</a></li>
+            <li class="breadcrumb-item"><a href="{% url 'enquries' %}">Enquries</a></li>
+            <li class="breadcrumb-item active" aria-current="page">{{enquries.Name }}</li>
+        </ol>
+    </nav>
+    <!-- /Breadcrumb -->
+
+
+    <table class="table table-bordered">
+        <thead>
+          <tr class="table-success">
+            <th colspan="2" class="text-center h2">Enqury Details</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th scope="row">Name</th>
+            <td>{{enquries.Name}}</td>
+          </tr>
+          <tr>
+            <th scope="row">Course Interest</th>
+            <td>{{enquries.Course_Interest}}</td>
+          </tr>
+          <tr>
+            <th scope="row">Address</th>
+            <td>{{enquries.Address}}</td>
+          </tr>
+          <tr>
+            <th scope="row">Phone No</th>
+            <td>{{enquries.Mobile_No}}</td>
+          </tr>
+          <tr>
+            <th scope="row">WhatsApp No</th>
+            <td>{{enquries.Whatsapp_No}}</td>
+          </tr>
+          <tr>
+            <th scope="row">Email Id</th>
+            <td>{{enquries.Email}}</td>
+          </tr>
+          <tr>
+            <th scope="row">Date Of Enqury</th>
+            <td>{{enquries.created}}</td>
+          </tr>
+          <tr>
+            <th scope="row">Remarks</th>
+            <td>{{enquries.Remarks}}</td>
+          </tr>
+        </tbody>
+    </table>
+</div>
+
+{% endblock content %}

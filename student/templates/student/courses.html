@@ -1,0 +1,60 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+<script>
+    $(document).ready( function () {
+        $('#course_table').DataTable({
+            responsive: true,
+            retrieve: true,
+            order:[],
+            });
+    } );
+</script>
+
+<div class="container shadow-lg p-3 mb-5 bg-white rounded">
+
+    <!-- Breadcrumb -->
+    <nav aria-label="breadcrumb" class="main-breadcrumb">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="{% url 'home' %}#COURSES">Home</a></li>
+            <li class="breadcrumb-item active" aria-current="page">Courses</li>
+        </ol>
+    </nav>
+    <!-- /Breadcrumb -->
+
+    {% if mode == 'alter' %}
+        <a href="{% url 'add_courses' %}"><button class="btn btn-primary b mb-4">Add</button></a>
+    {% endif %}
+
+    <table id="course_table" class="display table table-hover" style="width:100%">
+        <thead class="py-lg-5">
+            <tr class="table-success py-lg-5 ">
+                <th>Course Name</th>
+                <th class="d-flex justify-content-end">Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for course in courses %}
+            <tr>
+                <td>{{course.Name}}</td>
+                <td class="d-flex justify-content-end"> 
+                    {% if mode == 'view' %}
+                        <a href="{% url 'courses_view' course.id%}"><button class="btn btn-success"><i class="fa-solid fa-magnifying-glass fa-shake" style="color: #ffffff;"></i></button></a>
+                    {% endif %}
+                    {% if mode == 'alter' %}
+                        <a href="{% url 'alter_courses' course.id%}"><button class="btn btn-warning"><i class="fa-solid fa-pencil fa-spin" style="color: #000000;"></i></button></a> &nbsp;|&nbsp;
+                        <a href="{% url 'delete_courses' course.id%}"><button class="btn btn-danger"><i class="fa-solid fa-trash-can fa-fade" style="color: #ffffff;"></i></button></a>  
+                    {% endif %}
+                </td>
+
+            </tr>
+            {% endfor %}
+            
+        </tbody>
+    </table>
+
+</div>
+
+{% endblock content %}
